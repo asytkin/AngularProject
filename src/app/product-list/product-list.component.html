@@ -1,8 +1,11 @@
-<a class='productListCss'>
-    <tr style="position: absolute; left: 700px;top: 20px;">List of items</tr>
-    <ul>
-        <li *ngFor="let item of itemsStub">
-            <app-product></app-product>
-        </li>
-    </ul>
+<app-header></app-header>
+<a class='productList'>
+    <tr>List of items</tr>
+    <nav>
+        <ul>
+            <li *ngFor="let item of itemsStub">
+                <app-product></app-product>
+            </li>
+        </ul>
+    </nav>
 </a>
