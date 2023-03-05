@@ -1,11 +1,9 @@
 <app-header></app-header>
-<a class='productList'>
-    <tr>List of items</tr>
-    <nav>
-        <ul>
-            <li *ngFor="let item of itemsStub">
-                <app-product></app-product>
-            </li>
-        </ul>
-    </nav>
-</a>
+<div class='productList'>
+    <div class='listItemsText'>List of items</div>
+    <ul>
+        <li *ngFor="let item of itemsStub">
+            <app-product></app-product>
+        </li>
+    </ul>
+</div>

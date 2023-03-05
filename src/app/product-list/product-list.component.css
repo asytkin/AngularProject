@@ -2,17 +2,20 @@
 {    
     border:2px solid black;
     padding: 50px;
-    position: absolute; 
     right: 300px;
     left: 300px;
     height: 150px;
     background-color:rgb(245, 164, 164);
-    list-style-type: none;
- };
+ }
 
- tr.productList td{
-    position: absolute;
-    left: 600px;
-    top: 20px;
- };
+ .productList li
+{    
+    list-style-type: none !important;
+ }
+
+ .listItemsText
+ {
+    left:550px;
+    position:relative;
+ }
 
