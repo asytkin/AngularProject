@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/httpservice/product';
 
 @Component({
   selector: 'app-property-product',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./property-product.component.css']
 })
 export class PropertyProductComponent {
+
+
+  @Input()
+  product!: Product;
 
 }

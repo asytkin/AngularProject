@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Product } from './product';
 import {Injectable} from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: 'root'
   })
 
 export class HttpService {
@@ -13,7 +14,7 @@ export class HttpService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getAllProducts():Observable<Product[]> {
+    getAllProducts():Observable<Product[]>{
         return this.httpClient.get<Product[]>(this.url);
     }
 }
