@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/httpservice/product';
 
 @Component({
@@ -8,8 +8,11 @@ import { Product } from 'src/app/httpservice/product';
 })
 export class PropertyProductComponent {
 
+  @Input()  product!: Product;
+  @Output() onAddedToCartEvent = new EventEmitter<Product>();
 
-  @Input()
-  product!: Product;
+  onAddedToCart() {
+    this.onAddedToCartEvent.emit(this.product);
+  }
 
 }

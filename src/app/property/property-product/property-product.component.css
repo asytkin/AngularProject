@@ -1,6 +1,20 @@
-.product span
-{    
-  width: 250px;
-  left: 250px;
+.productdesc
+{
+  width: 800px;
+  left: 100px;
   display: inline-block;
  }
+
+ .productprice
+{
+  width: 100px;
+  left: 100px;
+  display: inline-block;
+ }
+
+ .productaddToCard
+ {
+   width: 100px;
+   left: 100px;
+   display: inline-block;
+  }
