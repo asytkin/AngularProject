@@ -1,32 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../httpservice/product';
-import { HttpService } from '../../httpservice/http.service';
+import { CartService } from 'src/app/service/cart.service';
+import { Product } from '../../model/product';
+import { HttpFakeProductService } from '../../service/http.fakeproduct.service';
 
 @Component({
   selector: 'app-property-product-list',
   templateUrl: './property-product-list.component.html',
-  styleUrls: ['./property-product-list.component.css']
+  styleUrls: ['./property-product-list.component.css'],
 })
-export class PropertyProductListComponent implements OnInit {
-  itemsStub= [1,2,3,4,5,6];
-  products: Product[]= [];
+export class PropertyProductListComponent {
+  itemsStub = [1, 2, 3, 4, 5, 6];
+  products: Product[] = [];
+  cartService!: CartService;
 
-
-  constructor(private httpService: HttpService)
-   {
-     this.httpService.getAllProducts().subscribe(  data =>
-     {
-       this.products = data;
-       console.log(data);
-   }
-   );
+  constructor(private httpFakeProductService: HttpFakeProductService) {
+    this.httpFakeProductService.getAllProducts().subscribe((data) => {
+      this.products = data;
+      console.log('getAllProducts:' + data);
+    });
   }
-  ngOnInit() {
-    console.log('000');
-    //console.log(fetch('https://fakestoreapi.com/products').then(res=>res.json()).then(json=>console.log(json)));
-    //console.log(this.http.get<Product>('https://fakestoreapi.com/products/1'));
 
-    console.log('2222');
-    console.log(this.products);
+  onAddToCart(product: Product): void {
+    this.cartService.addToCart(product);
+    console.log('addToCart:' + product);
   }
 }

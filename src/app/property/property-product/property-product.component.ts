@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from 'src/app/httpservice/product';
+import { Product } from 'src/app/model/product';
 
 @Component({
   selector: 'app-property-product',
@@ -9,10 +9,11 @@ import { Product } from 'src/app/httpservice/product';
 export class PropertyProductComponent {
 
   @Input()  product!: Product;
-  @Output() onAddedToCartEvent = new EventEmitter<Product>();
+  @Output() onAddToCartEvent = new EventEmitter<Product>();
 
-  onAddedToCart() {
-    this.onAddedToCartEvent.emit(this.product);
+  onAddToCart() {
+    console.log('111');
+    this.onAddToCartEvent.emit(this.product);
   }
 
 }
