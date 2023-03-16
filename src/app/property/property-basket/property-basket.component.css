@@ -1,0 +1,20 @@
+.basketItemsList
+{
+    border:2px solid black;
+    padding: 50px;
+    right: 100px;
+    left: 100px;
+    height: 450px;
+    background-color:rgb(245, 164, 164);
+ }
+
+ .basketItemsList li
+{
+    list-style-type: none !important;
+ }
+
+ .totalPriceText
+ {
+    left:950px;
+    position:relative;
+ }

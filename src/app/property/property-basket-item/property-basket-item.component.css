@@ -1,0 +1,20 @@
+.baskettitle
+{
+  width: 800px;
+  left: 100px;
+  display: inline-block;
+ }
+
+ .basketcount
+{
+  width: 100px;
+  left: 100px;
+  display: inline-block;
+ }
+
+ .basketprice
+ {
+   width: 100px;
+   left: 100px;
+   display: inline-block;
+  }
