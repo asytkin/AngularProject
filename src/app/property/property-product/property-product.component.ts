@@ -12,7 +12,6 @@ export class PropertyProductComponent {
   @Output() onAddToCartEvent = new EventEmitter<Product>();
 
   onAddToCart() {
-    console.log('111');
     this.onAddToCartEvent.emit(this.product);
   }
 

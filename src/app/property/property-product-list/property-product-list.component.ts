@@ -9,7 +9,6 @@ import { HttpFakeProductService } from '../../service/http.fakeproduct.service';
   styleUrls: ['./property-product-list.component.css'],
 })
 export class PropertyProductListComponent {
-  itemsStub = [1, 2, 3, 4, 5, 6];
   products: Product[] = [];
   cartService!: CartService;
 

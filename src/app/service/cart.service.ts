@@ -33,14 +33,13 @@ export class CartService {
       if (basketItemSameId != null) basketItemSameId.count++;
     }
     this.cartItemsCount++;
-    this.cartItemsCount$.next(this.cartItemsCount);
   }
 
   /**
    * Basket items count
    */
   getCartCount() {
-    return this.cartItemsCount$;
+    return this.cartItemsCount$.asObservable();
   }
 
   /**
