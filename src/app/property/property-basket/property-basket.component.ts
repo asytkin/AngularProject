@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 import { BasketItem } from 'src/app/model/basketitem';
 import { CartService } from 'src/app/service/cart.service';
@@ -9,8 +10,10 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class PropertyBasketComponent {
   basketItems: BasketItem[] = [];
+  basketItemsSum:Observable< number >| undefined;
 
   constructor(private cartService: CartService) {
     this.basketItems = this.cartService.getCartItems();
+    this.basketItemsSum = this.cartService.getCartSum();
   }
 }
