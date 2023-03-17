@@ -2,7 +2,7 @@
     <div class='listItemsText'>List of items</div>
     <ul>
         <li *ngFor="let product of products">
-            <app-property-product [product]="product"></app-property-product>
+            <app-property-product [product]="product" (onAddToCartEvent)="onAddToCart($event)"></app-property-product>
         </li>
     </ul>
 </div>

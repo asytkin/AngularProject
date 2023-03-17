@@ -8,7 +8,7 @@
                 <a class="shoppingCardText" routerLink="property-basket">Shopping card</a>
             </th>
             <th>
-                <a class="itemsInCardText" >Items in card - {{basketItemsCount$}}</a>
+                <a class="itemsInCardText" >Items in card - {{basketItemsCount$ | async }}</a>
             </th>
         </tr>
     </nav>

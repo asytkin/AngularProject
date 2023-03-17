@@ -9,9 +9,8 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class PropertyBasketComponent {
   basketItems: BasketItem[] = [];
-  cartService!: CartService;
 
-  constructor() {
+  constructor(private cartService: CartService) {
     this.basketItems = this.cartService.getCartItems();
   }
 }
