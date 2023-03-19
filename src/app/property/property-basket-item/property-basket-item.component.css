@@ -1,18 +1,18 @@
-.productdesc
+.baskettitle
 {
   width: 800px;
   left: 100px;
   display: inline-block;
  }
 
- .productprice
+ .basketcount
 {
   width: 100px;
   left: 100px;
   display: inline-block;
  }
 
- .productaddToCard
+ .basketprice
  {
    width: 100px;
    left: 100px;

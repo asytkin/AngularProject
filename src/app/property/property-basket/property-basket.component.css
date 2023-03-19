@@ -1,4 +1,4 @@
-.productList
+.basketItemsList
 {
     border:2px solid black;
     padding: 50px;
@@ -8,13 +8,13 @@
     background-color:rgb(245, 164, 164);
  }
 
- .productList li
+ .basketItemsList li
 {
     list-style-type: none !important;
  }
 
- .listItemsText
+ .totalPriceText
  {
-    left:950px;
+    left:150px;
     position:relative;
  }

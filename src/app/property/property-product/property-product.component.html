@@ -1,5 +1,7 @@
-<div class='product'>
-    <span>Title item</span>
-    <span>Price item</span>
-    <span>Add to card item</span>
+<div>
+    <span class="productdesc">{{product.title}}</span>
+    <span class="productprice">{{product.price}}</span>
+    <span class="productaddToCard">
+    <button (click)="onAddToCart()">Add to card</button>
+    </span>
 </div>

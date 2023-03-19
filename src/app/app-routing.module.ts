@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [  
+const routes: Routes = [
   {
     path: 'property-product-list',
     loadChildren: () =>
@@ -9,6 +9,13 @@ const routes: Routes = [
         (m) => m.PropertyProductListModule
       ),
   },
+  {
+    path: 'property-basket',
+    loadChildren: () =>
+      import('./property/property-basket/property-basket.module').then(
+        (m) => m.PropertyBasketModule
+      ),
+  }
 ];
 
 @NgModule({
