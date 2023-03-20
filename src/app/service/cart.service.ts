@@ -4,6 +4,7 @@ import { Product } from '../model/product';
 import { BasketItem } from '../model/basketitem';
 
 import { BehaviorSubject, of } from 'rxjs';
+import { Store } from '@ngrx/store'
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +14,15 @@ export class CartService {
   private cartItemsCount$ = new BehaviorSubject<number>(0);
   private cartItemsCount: number = 0;
 
+constructor(private store:Store<any>){}
   /**
    * Adding product to basket
    *
    * @param product - product to add
    */
   addToCart(product: Product): void {
+   this.store.dispatch({type:"ADD_ITEM"})
+   this.store.subscribe(state=>(this.basketItems=state.items));
     if (this.basketItems.find((i) => i.item.id == product.id) == null) {
       let newBasketItem: BasketItem = {
         item: product,
