@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartService} from './service/cart.service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { StoreModule } from '@ngrx/store'
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -20,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     NgFor,
     HttpClientModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [CartService],
   bootstrap: [AppComponent]

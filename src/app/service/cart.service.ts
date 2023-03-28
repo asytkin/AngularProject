@@ -1,67 +1,49 @@
+import { getItemsCount } from './../property/state/basket.reducer';
+import { Action, AddItems, GetItems } from './../property/state/basket.actions';
 import { Injectable } from '@angular/core';
 
 import { Product } from '../model/product';
 import { BasketItem } from '../model/basketitem';
 
-import { BehaviorSubject, of } from 'rxjs';
-import { Store } from '@ngrx/store'
+import { BehaviorSubject, of, Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+
+import * as fromBasket from 'src/app/property/state/basket.reducer';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private basketItems: BasketItem[] = [];
-  private cartItemsCount$ = new BehaviorSubject<number>(0);
-  private cartItemsCount: number = 0;
 
-constructor(private store:Store<any>){}
+  constructor(private store: Store<fromBasket.AppState>) { }
   /**
    * Adding product to basket
    *
    * @param product - product to add
    */
   addToCart(product: Product): void {
-   this.store.dispatch({type:"ADD_ITEM"})
-   this.store.subscribe(state=>(this.basketItems=state.items));
-    if (this.basketItems.find((i) => i.item.id == product.id) == null) {
-      let newBasketItem: BasketItem = {
-        item: product,
-        count: 1,
-      };
-      this.basketItems.push(newBasketItem);
-      console.log(newBasketItem);
-    } else {
-      let basketItemSameId = this.basketItems.find(
-        (i) => i.item.id == product.id
-      );
-      if (basketItemSameId != null) basketItemSameId.count++;
-    }
-    this.cartItemsCount++;
+    this.store.dispatch(new AddItems({ item: product }));
   }
 
   /**
    * Basket items count
    */
   getCartCount() {
-    return this.cartItemsCount$.asObservable();
+    return this.store.basketItems$.pipe(select(fromBasket.getItemsCount));
   }
 
   /**
    * Basket items price
    */
   getCartSum() {
-    const sum: number = this.basketItems.reduce(
-      (sum, currentBasketItem) =>
-        sum + Number(currentBasketItem.item.price) * currentBasketItem.count,
-      0
-    );
-    return of(sum == null ? 0 : sum);
+    return this.store.basketItems$.pipe(select(fromBasket.getTotalSum));
   }
 
   /**
    * All basket items
    */
   getCartItems() {
-    return this.basketItems;
+    return this.store.basketItems$.pipe(select(fromBasket.getItems));
   }
 }
