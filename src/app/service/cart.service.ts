@@ -1,5 +1,6 @@
+
 import { getItemsCount } from './../property/state/basket.reducer';
-import { Action, AddItems, GetItems } from './../property/state/basket.actions';
+import { AddItems } from './../property/state/basket.actions';
 import { Injectable } from '@angular/core';
 
 import { Product } from '../model/product';
@@ -30,20 +31,20 @@ export class CartService {
    * Basket items count
    */
   getCartCount() {
-    return this.store.basketItems$.pipe(select(fromBasket.getItemsCount));
+    return this.store.pipe(select(fromBasket.getItemsCount));
   }
 
   /**
    * Basket items price
    */
   getCartSum() {
-    return this.store.basketItems$.pipe(select(fromBasket.getTotalSum));
+    return this.store.pipe(select(fromBasket.getTotalSum));
   }
 
   /**
    * All basket items
    */
   getCartItems() {
-    return this.store.basketItems$.pipe(select(fromBasket.getItems));
+    return this.store.pipe(select(fromBasket.getItems));
   }
 }

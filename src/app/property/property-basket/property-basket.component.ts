@@ -9,11 +9,11 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./property-basket.component.css'],
 })
 export class PropertyBasketComponent {
-  basketItems: BasketItem[] = [];
-  basketItemsSum:Observable< number >| undefined;
+ public basketItems$!: Observable<BasketItem[]>;
+  basketItemsSum: Observable<number> | undefined;
 
   constructor(private cartService: CartService) {
-    this.basketItems = this.cartService.getCartItems();
+    this.basketItems$ = this.cartService.getCartItems();
     this.basketItemsSum = this.cartService.getCartSum();
   }
 }

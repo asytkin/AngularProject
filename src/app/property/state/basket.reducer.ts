@@ -58,7 +58,7 @@ export const getItemsCount = createSelector(
     const sum: number =
       state.items.reduce((sum, currentBasketItem) =>
         sum + Number(currentBasketItem.item.price), 0);
-    return of(sum == null ? 0 : sum);
+    return (sum == null ? 0 : sum);
   }
 );
 
@@ -68,7 +68,7 @@ export const getTotalSum = createSelector(
     const sum: number =
       state.items.reduce((sum, currentBasketItem) =>
         sum + Number(currentBasketItem.item.price) * currentBasketItem.count, 0);
-    return of(sum == null ? 0 : sum);
+    return (sum == null ? 0 : sum);
   }
 );
 
