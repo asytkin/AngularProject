@@ -10,9 +10,14 @@ export class PropertyProductComponent {
 
   @Input()  product!: Product;
   @Output() onAddToCartEvent = new EventEmitter<Product>();
+  @Output() onDeleteFromCartEvent = new EventEmitter<Product>();
 
   onAddToCart() {
     this.onAddToCartEvent.emit(this.product);
+  }
+
+  onDeleteFromCart() {
+    this.onDeleteFromCartEvent.emit(this.product);
   }
 
 }

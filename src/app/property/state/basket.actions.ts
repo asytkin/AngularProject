@@ -1,7 +1,8 @@
 import { Product } from '../../model/product';
 
 export enum BasketActionTypes {
-    ADD_ITEMS = "ADD_ITEM"
+    ADD_ITEMS = "ADD_ITEM",
+    DELETE_ITEMS = "DELETE_ITEM",
 }
 
 export class AddItems implements Action {
@@ -9,4 +10,9 @@ export class AddItems implements Action {
     constructor(public payload: { item: Product }) { }
 }
 
-export type Action = AddItems;
+export class DeleteItems implements Action {
+    readonly type = BasketActionTypes.DELETE_ITEMS
+    constructor(public payload: { item: Product }) { }
+}
+
+export type Action = AddItems | DeleteItems;

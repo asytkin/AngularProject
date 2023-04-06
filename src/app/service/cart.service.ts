@@ -1,6 +1,7 @@
 
 import { getItemsCount } from './../property/state/basket.reducer';
 import { AddItems } from './../property/state/basket.actions';
+import { DeleteItems } from './../property/state/basket.actions';
 import { Injectable } from '@angular/core';
 
 import { Product } from '../model/product';
@@ -25,6 +26,15 @@ export class CartService {
    */
   addToCart(product: Product): void {
     this.store.dispatch(new AddItems({ item: product }));
+  }
+
+  /**
+ * Delete product from basket
+ *
+ * @param product - product to delete
+ */
+  deleteFromCart(product: Product): void {
+    this.store.dispatch(new DeleteItems({ item: product }));
   }
 
   /**

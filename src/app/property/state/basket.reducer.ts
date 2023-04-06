@@ -47,6 +47,32 @@ export function basketReducer(
         };
       }
     }
+    case basketActions.BasketActionTypes.DELETE_ITEMS: {
+      let product = action.payload.item;
+      if (state.items.find((i) => i.item.id == product.id) == null) {
+        return {
+          ...state,
+          items: state.items,
+        };
+      } else {
+        let basketItemSameId = state.items.find((i) => i.item.id == product.id);
+        if (basketItemSameId != null) {
+          if (basketItemSameId.count == 1) {
+            const itemsToBasket = state.items.filter((i) => i.item.id != product.id);
+            return {
+              ...state,
+              items: itemsToBasket
+            }
+          }
+          else
+            basketItemSameId.count--;
+        }
+        return {
+          ...state,
+          items: state.items,
+        };
+      }
+    }
     default: {
       return state;
     }
