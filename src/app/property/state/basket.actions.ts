@@ -1,4 +1,5 @@
 import { Product } from '../../model/product';
+import { Action } from "@ngrx/store";
 
 export enum BasketActionTypes {
     ADD_ITEMS = "ADD_ITEM",
@@ -15,4 +16,4 @@ export class DeleteItems implements Action {
     constructor(public payload: { item: Product }) { }
 }
 
-export type Action = AddItems | DeleteItems;
+export type Actions = AddItems | DeleteItems;

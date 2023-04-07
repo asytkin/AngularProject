@@ -20,7 +20,7 @@ export const initialState: BasketState = {
 
 export function basketReducer(
   state = initialState,
-  action: basketActions.Action
+  action: basketActions.Actions
 ): BasketState {
   switch (action.type) {
     case basketActions.BasketActionTypes.ADD_ITEMS: {
