@@ -1,7 +1,7 @@
 <div class='basketItemsList'>
   <div class='totalPriceText'>Total Price {{basketItemsSum | async}} $</div>
   <ul>
-      <li *ngFor="let basketItem of basketItems">
+      <li *ngFor="let basketItem of basketItems$ | async">
           <app-property-basket-item [basketItem]="basketItem"></app-property-basket-item>
       </li>
   </ul>

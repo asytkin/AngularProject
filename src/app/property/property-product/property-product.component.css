@@ -12,9 +12,16 @@
   display: inline-block;
  }
 
- .productaddToCard
+ .productAddCard
  {
    width: 100px;
    left: 100px;
    display: inline-block;
   }
+
+  .productDeleteCard
+  {
+    width: 150px;
+    left: 100px;
+    display: inline-block;
+   }
