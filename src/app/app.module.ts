@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { basketReducer } from 'src/app/property/state/basket.reducer';
+import { reducers, metaReducers } from './store';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -21,6 +22,7 @@ import { basketReducer } from 'src/app/property/state/basket.reducer';
     StoreModule.forRoot({}),
     StoreModule.forFeature('items', basketReducer),
     StoreDevtoolsModule.instrument(),
+    StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [CartService],
   bootstrap: [AppComponent],
