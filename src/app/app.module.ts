@@ -6,11 +6,13 @@ import { CartService } from './service/cart.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { basketReducer } from 'src/app/property/state/basket.reducer';
 import { reducers, metaReducers } from './store';
+import { HydrationEffects } from './store/hydration/hydration.effects';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -19,10 +21,10 @@ import { reducers, metaReducers } from './store';
     AppRoutingModule,
     NgFor,
     HttpClientModule,
-    StoreModule.forRoot({}),
     StoreModule.forFeature('items', basketReducer),
+    EffectsModule.forRoot([HydrationEffects]),
+    StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument(),
-    StoreModule.forRoot(reducers, { metaReducers })
   ],
   providers: [CartService],
   bootstrap: [AppComponent],

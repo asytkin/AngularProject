@@ -1,15 +1,11 @@
-import { ActionReducerMap, MetaReducer } from "@ngrx/store";
-import { basketReducer } from "src/app/property/state/basket.reducer";
-import { hydrationMetaReducer } from "./hydration/hydration.reducer";
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { basketReducer } from 'src/app/property/state/basket.reducer';
+import { hydrationMetaReducer } from './hydration/hydration.reducer';
 
-export interface RootState {
-  count: number
-}
+export interface RootState {}
 
 export const reducers: ActionReducerMap<RootState> = {
-  count: basketReducer
-}
+  items: basketReducer,
+};
 
-export const metaReducers: MetaReducer[] = [
-  hydrationMetaReducer
-]
+export const metaReducers: MetaReducer[] = [hydrationMetaReducer];
