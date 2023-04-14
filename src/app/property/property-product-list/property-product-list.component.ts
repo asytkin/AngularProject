@@ -20,11 +20,9 @@ export class PropertyProductListComponent {
 
   onAddToCart(product: Product): void {
     this.cartService.addToCart(product);
-    console.log('addToCart:' + product);
   }
 
   onDeleteFromCart(product: Product): void {
     this.cartService.deleteFromCart(product);
-    console.log('deleteFromCart:' + product);
   }
 }
